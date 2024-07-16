@@ -18,7 +18,6 @@ export class PostRennenGameComponent implements AfterViewInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.resizeCanvas();
-
   }
 
   ngOnDestroy() {
@@ -27,8 +26,8 @@ export class PostRennenGameComponent implements AfterViewInit, OnDestroy {
 
   private resizeCanvas() {
     const canvas = this.canvasRef.nativeElement;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth; // Imposta la larghezza del canvas uguale alla larghezza della finestra
+    canvas.height = window.innerHeight; // Imposta l'altezza del canvas uguale all'altezza della finestra
   }
 
   private startGame() {

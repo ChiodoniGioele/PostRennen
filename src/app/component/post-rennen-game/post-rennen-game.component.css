@@ -1,4 +1,12 @@
-canvas{
-  border: 1px solid black;
-  border-radius: 5px;
+/* post-rennen-game.component.css */
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Impedisce lo scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block; /* Assicura che il canvas si adatti correttamente al contenitore */
 }
