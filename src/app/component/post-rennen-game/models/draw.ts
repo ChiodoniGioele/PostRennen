@@ -14,12 +14,14 @@ export abstract class Draw implements Drawable {
     this.ctx = ctx;
     this.position = position;
     this._image = image || new Image();
+    if(image){
+      this.position.setDimension(image);
+    }
     this.canvas = canvas;
   }
 
   draw() {
     this.drawImage(false);
-
   }
 
   protected drawImage(flipped: boolean = false): void {
