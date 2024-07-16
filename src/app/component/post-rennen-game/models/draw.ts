@@ -1,6 +1,6 @@
-import {Drawable} from "../interfaces/drawable";
-import {Position} from "../utils/position";
-import {Altitude} from "../utils/altitude";
+import { Drawable } from "../interfaces/drawable";
+import { Position } from "../utils/position";
+import { Altitude } from "../utils/altitude";
 
 export abstract class Draw implements Drawable {
 
@@ -19,6 +19,7 @@ export abstract class Draw implements Drawable {
 
   draw() {
     this.drawImage(false);
+
   }
 
   protected drawImage(flipped: boolean = false): void {
@@ -45,6 +46,7 @@ export abstract class Draw implements Drawable {
         this.position.height
       );
     }
+    this.drawTemporalBorderImage(); // da rimuovere quando finito il gioco
   }
 
 
@@ -72,6 +74,28 @@ export abstract class Draw implements Drawable {
 
   set image(value: HTMLImageElement) {
     this._image = value;
-    this.position.setDimension(this.image)
+    this.position.setDimension(this.image);
+  }
+
+  // da elliminare quando finito il gioco //
+  private drawTemporalBorderImage(): void {
+    // Salva lo stato corrente del contesto
+    this.ctx.save();
+
+    // Imposta lo stile per il bordo rosso
+    this.ctx.strokeStyle = 'red';
+    this.ctx.lineWidth = 1;
+
+    // Calcola le coordinate del rettangolo che rappresenta l'immagine
+    let x = this.position.x;
+    let y = this.position.y;
+    let width = this.position.width;
+    let height = this.position.height;
+
+    // Disegna il rettangolo rosso attorno all'immagine
+    this.ctx.strokeRect(x, y, width, height);
+
+    // Ripristina lo stato originale del contesto
+    this.ctx.restore();
   }
 }

@@ -32,10 +32,12 @@ export class Game {
   }
 
   drawFrame(): void {
+    this.drawTemporalHeightLine();
     for (let draw of this.drawRepository.getDraw()) {
       draw.draw();
     }
   }
+
 
   stop() {
     clearInterval(this.gameInterval);
@@ -82,16 +84,48 @@ export class Game {
     switch (event.key) {
       case 'ArrowLeft':
       case 'a':
-        this.drawRepository.postman.stopMove();
+        if (!this.drawRepository.postman.isJumping) {
+          this.drawRepository.postman.stopMove();
+        }
         break;
       case 'ArrowRight':
       case 'd':
-        this.drawRepository.postman.stopMove();
+        if (!this.drawRepository.postman.isJumping) {
+          this.drawRepository.postman.stopMove();
+        }
         break;
       case 'ArrowDown':
       case 's':
         this.drawRepository.postman.stopCrouch();
         break;
     }
+  }
+
+
+  // da elliminare quando finito il gioco //
+  private drawTemporalHeightLine(): void {
+    if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
+    this.ctx.strokeStyle = 'red';
+    this.ctx.lineWidth = 2;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, Altitude.Up);
+    this.ctx.lineTo(10000, Altitude.Up);
+    this.ctx.stroke();
+
+    if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
+    this.ctx.strokeStyle = 'red';
+    this.ctx.lineWidth = 2;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, Altitude.Middle);
+    this.ctx.lineTo(10000, Altitude.Middle);
+    this.ctx.stroke();
+
+    if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
+    this.ctx.strokeStyle = 'red';
+    this.ctx.lineWidth = 2
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, Altitude.Down);
+    this.ctx.lineTo(10000, Altitude.Down);
+    this.ctx.stroke();
   }
 }

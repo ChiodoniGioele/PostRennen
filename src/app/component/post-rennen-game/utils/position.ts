@@ -29,15 +29,18 @@ export class Position {
   }
 
   get y(): number {
+    let posY = 0;
     if (this._altitude == Altitude.Auto) {
-      return this._y;
+      posY = this._y;
     } else {
-      return this._altitude;
+      posY = this._altitude;
     }
+    posY -= this._height;
+    return posY;
   }
 
   set y(value: number) {
-    this.altitude = Altitude.Auto;
+    this._altitude = Altitude.Auto;
     this._y = value;
   }
 
@@ -52,11 +55,6 @@ export class Position {
   setDimension(image: HTMLImageElement) {
     this._width = image.width;
     this._height = image.height;
-  }
-
-
-  get altitude(): Altitude {
-    return this._altitude;
   }
 
   set altitude(value: Altitude) {
