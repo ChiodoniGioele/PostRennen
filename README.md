@@ -58,6 +58,8 @@ In the `utils` folder, I have all the classes that help me represent the models.
     - [Draw](./01_DOC/component/post-rennen-game/models/draw.md)
     - [DrawRepository](./01_DOC/component/post-rennen-game/models/drawRepository.md)
     - [ObstacleGenerator](./01_DOC/component/post-rennen-game/models/obstacleGenerator.md)
+  - Interfaces
+	- [Drawable](./01_DOC/component/post-rennen-game/interfaces/drawable.md)
   - Util
     - [Function](./01_DOC/component/post-rennen-game/utils/function.md)
     - [Position](./01_DOC/component/post-rennen-game/utils/position.md)
