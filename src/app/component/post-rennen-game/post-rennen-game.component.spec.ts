@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PostRennenGameComponent } from './post-rennen-game.component';
+import {PostRennenGameComponent} from './post-rennen-game.component';
 
 describe('PostRennenGameComponent', () => {
   let component: PostRennenGameComponent;
@@ -10,8 +10,8 @@ describe('PostRennenGameComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PostRennenGameComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PostRennenGameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

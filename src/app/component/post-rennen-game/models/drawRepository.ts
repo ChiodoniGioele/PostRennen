@@ -1,7 +1,7 @@
-import { Postman } from "./postman";
-import { Obstacle } from "./obstacle";
-import { Draw } from "./draw";
-import { ObstacleGenerator } from "./obstacleGenerator";
+import {Postman} from "./postman";
+import {Obstacle} from "./obstacle";
+import {Draw} from "./draw";
+import {ObstacleGenerator} from "./obstacleGenerator";
 
 export class DrawRepository {
   private _postman: Postman;

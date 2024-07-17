@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
-import { Game } from "./controllers/game";
-import {Altitude} from "./utils/altitude";
+import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild} from '@angular/core';
+import {Game} from "./controllers/game";
 
 @Component({
   selector: 'app-post-rennen-game',
@@ -27,8 +26,8 @@ export class PostRennenGameComponent implements AfterViewInit, OnDestroy {
 
   private resizeCanvas() {
     const canvas = this.canvasRef.nativeElement;
-    canvas.width = window.innerWidth; // Imposta la larghezza del canvas uguale alla larghezza della finestra
-    canvas.height = window.innerHeight; // Imposta l'altezza del canvas uguale all'altezza della finestra
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
 
   private startGame() {

@@ -1,6 +1,5 @@
-import { Drawable } from "../interfaces/drawable";
-import { Position } from "../utils/position";
-import { Altitude } from "../utils/altitude";
+import {Drawable} from "../interfaces/drawable";
+import {Position} from "../utils/position";
 
 export abstract class Draw implements Drawable {
 
@@ -14,7 +13,7 @@ export abstract class Draw implements Drawable {
     this.ctx = ctx;
     this.position = position;
     this._image = image || new Image();
-    if(image){
+    if (image) {
       this.position.setDimension(image);
     }
     this.canvas = canvas;
