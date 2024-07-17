@@ -1,12 +1,12 @@
 import {Altitude} from "./altitude";
 
 export class Position {
+
   private _x: number;
   private _y: number;
+  private _altitude: Altitude;
   private _width: number;
   private _height: number;
-
-  private _altitude: Altitude;
 
   constructor(x: number, altitude: Altitude = Altitude.Auto, y: number = 0, width: number = 0, height: number = 0) {
     this._x = x;
@@ -40,7 +40,6 @@ export class Position {
     } else {
       posY -= this._height;
     }
-
     return posY;
   }
 

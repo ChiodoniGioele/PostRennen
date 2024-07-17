@@ -1,8 +1,7 @@
 # PostRennen
 
-Game version 1.0.0.
-Angular CLI version 17.3.8.
-
+**Game** version 1.0.0.
+**Angular** CLI version 17.3.8.
 
 ## Project Objectives
 The objective is to develop a web game similar to the Google Chrome game "Dino", but with the style of Swiss Post and some additional features.
@@ -10,6 +9,7 @@ The game must be suitable for all age groups and accessible from any platform.
 
 
 ## Structure
+
 ``` 
 src /
 	|-- app /
@@ -49,9 +49,9 @@ In the `utils` folder, I have all the classes that help me represent the models.
 
 ## Documentation
 - PostRennenComponent
-  - [Component](./doc/component/post-rennen-game/component.md)
+  - [Component](./01_DOC/component/post-rennen-game/component.md)
   - Controller
-    - [Game Controller](./doc/component/post-rennen-game/controllers/game.md)
+    - [Game Controller](./01_DOC/component/post-rennen-game/controllers/game.md)
   - Model
     - [Postman](./01_DOC/component/post-rennen-game/models/postman.md)
     - [Obstacle](./01_DOC/component/post-rennen-game/models/obstacle.md)
@@ -62,7 +62,6 @@ In the `utils` folder, I have all the classes that help me represent the models.
     - [Function](./01_DOC/component/post-rennen-game/utils/function.md)
     - [Position](./01_DOC/component/post-rennen-game/utils/position.md)
 
-  
 
 ## Command
 - **Port**: 4200
