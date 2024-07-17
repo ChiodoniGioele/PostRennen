@@ -1,6 +1,6 @@
-import {Obstacle} from "./obstacle";
-import {Position} from "../utils/position";
-import {Altitude} from "../utils/altitude";
+import { Obstacle } from "./obstacle";
+import { Position } from "../utils/position";
+import { Altitude } from "../utils/altitude";
 
 export class ObstacleGenerator {
 
@@ -23,7 +23,7 @@ export class ObstacleGenerator {
   startGenerate() {
     this.generationInterval = setInterval(() => {
       this.obstacles.push(this.generate(Altitude.Down, this.regalo));
-    }, 2000);
+    }, 3000);
   }
 
   private generate(altitude: Altitude, image: HTMLImageElement): Obstacle {
@@ -31,8 +31,14 @@ export class ObstacleGenerator {
     return new Obstacle(this.canvas, this.canvas.getContext('2d')!, newSpowner, image);
   }
 
-
   get obstacles(): Obstacle[] {
     return this._obstacles;
+  }
+
+  removeObstacle(obstacle: Obstacle) {
+    const index = this._obstacles.indexOf(obstacle);
+    if (index > -1) {
+      this._obstacles.splice(index, 1);
+    }
   }
 }

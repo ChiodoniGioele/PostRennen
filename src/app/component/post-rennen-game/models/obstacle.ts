@@ -7,13 +7,12 @@ export class Obstacle extends Draw {
 
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, position: Position, image: HTMLImageElement) {
     super(canvas, ctx, position, image);
-    console.log(image);
     this.start();
   }
 
   start() {
     this.moveInterval = setInterval(() => {
       this.position.x -= 5;
-    }, 40);
+    }, 30);
   }
 }
