@@ -35,7 +35,12 @@ export class Position {
     } else {
       posY = this._altitude;
     }
-    posY -= this._height;
+    if (this._altitude == Altitude.Up) {
+      return posY;
+    } else {
+      posY -= this._height;
+    }
+
     return posY;
   }
 

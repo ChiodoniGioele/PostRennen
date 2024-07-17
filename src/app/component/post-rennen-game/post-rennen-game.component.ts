@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
 import { Game } from "./controllers/game";
+import {Altitude} from "./utils/altitude";
 
 @Component({
   selector: 'app-post-rennen-game',

@@ -1,13 +1,14 @@
-import { Obstacle } from "./obstacle";
-import { Position } from "../utils/position";
-import { Altitude } from "../utils/altitude";
+import {Obstacle} from "./obstacle";
+import {Position} from "../utils/position";
+import {Altitude} from "../utils/altitude";
 
 export class ObstacleGenerator {
 
   private canvas: HTMLCanvasElement;
 
-  private regalo: HTMLImageElement = new Image();
-  private uccello: HTMLImageElement = new Image();
+  private gift: HTMLImageElement = new Image();
+  private bird: HTMLImageElement = new Image();
+  private icicle: HTMLImageElement = new Image();
 
   private _obstacles: Obstacle[];
 
@@ -16,19 +17,49 @@ export class ObstacleGenerator {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this._obstacles = [];
-    this.regalo.src = "assets/obstacle/down/gift.png";
-    this.uccello.src = "assets/obstacle/middle/bird.png";
+    this.gift.src = "assets/obstacle/down/gift.png"; // Altitude.Down
+    this.bird.src = "assets/obstacle/middle/bird.png"; // Altitude.Middle
+    this.icicle.src = "assets/obstacle/up/icicle.png"; // Altitude.Up
   }
 
   startGenerate() {
     this.generationInterval = setInterval(() => {
-      this.obstacles.push(this.generate(Altitude.Down, this.regalo));
-    }, 3000);
+      const altitude = this.getRandomAltitude();
+      const image = this.getImageForAltitude(altitude);
+      this.obstacles.push(this.generate(altitude, image));
+    }, 2000);
   }
 
   private generate(altitude: Altitude, image: HTMLImageElement): Obstacle {
     const newSpowner = new Position(window.innerWidth + image.width, altitude);
     return new Obstacle(this.canvas, this.canvas.getContext('2d')!, newSpowner, image);
+  }
+
+  private getRandomAltitude(): Altitude {
+    const num = Math.floor(Math.random() * 3);
+    switch (num) {
+      case 0:
+        return Altitude.Down;
+      case 1:
+        return Altitude.Middle;
+      case 2:
+        return Altitude.Up;
+      default:
+        return Altitude.Down;
+    }
+  }
+
+  private getImageForAltitude(altitude: Altitude): HTMLImageElement {
+    switch (altitude) {
+      case Altitude.Down:
+        return this.gift;
+      case Altitude.Middle:
+        return this.bird;
+      case Altitude.Up:
+        return this.icicle;
+      default:
+        return this.gift;
+    }
   }
 
   get obstacles(): Obstacle[] {

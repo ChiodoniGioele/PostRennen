@@ -1,6 +1,6 @@
 export enum Altitude {
-  Up = 100,
-  Middle = 200,
+  Up = 200,
+  Middle = 340,
   Down = 400,
   Auto,
 }
