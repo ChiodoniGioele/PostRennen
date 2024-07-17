@@ -16,8 +16,8 @@ export class ObstacleGenerator {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this._obstacles = [];
-    this.regalo.src = "assets/obstacle/regalo.png";
-    this.uccello.src = "assets/obstacle/uccello.png";
+    this.regalo.src = "assets/obstacle/down/gift.png";
+    this.uccello.src = "assets/obstacle/middle/bird.png";
   }
 
   startGenerate() {

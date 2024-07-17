@@ -3,6 +3,7 @@ import {Postman} from "../models/postman";
 import {Position} from "../utils/position";
 import {Altitude} from "../utils/altitude";
 import {Obstacle} from "../models/obstacle";
+import {Draw} from "../models/draw";
 
 export class Game {
 
@@ -36,13 +37,21 @@ export class Game {
   drawFrame(): void {
     this.drawTemporalHeightLine();
     for (let draw of this.drawRepository.getDraw()) {
-      if ((draw.position.x < 0 - draw.image.width) && !(draw instanceof Postman)) {
-        this.drawRepository.removeObstacle(draw as Obstacle);
-      }
+      this.obstaclePassed(draw);
       draw.draw();
-      if (!(draw instanceof Postman) && draw.isOverlapping(this.drawRepository.postman.position)) {
-        this.drawRepository.removeObstacle(draw as Obstacle);
-      }
+      this.obstacleTouch(draw);
+    }
+  }
+
+  private obstaclePassed(draw: Draw): void {
+    if ((draw.position.x < 0 - draw.image.width) && !(draw instanceof Postman)) {
+      this.drawRepository.removeObstacle(draw as Obstacle);
+    }
+  }
+
+  private obstacleTouch(draw: Draw): void {
+    if (!(draw instanceof Postman) && draw.isOverlapping(this.drawRepository.postman.position)) {
+      this.drawRepository.removeObstacle(draw as Obstacle);
     }
   }
 
