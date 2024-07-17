@@ -1,5 +1,7 @@
 # Draw
 
+[To README](./../../../../README.md) 
+
 The `Draw` class is an abstract class that extends [Drawable](./../interfaces/drawable.md), the interface that represents all objects that can be drawn.
 
 This class contains the `drawImage()` method, which is used to draw images. It accepts an optional parameter, `isFlipped`, which defaults to false. This parameter is used to draw images in a mirrored manner.
@@ -45,3 +47,5 @@ private compareY(otherPosition: Position): boolean {
   );  
 }
 ```
+
+[To README](./../../../../README.md) 

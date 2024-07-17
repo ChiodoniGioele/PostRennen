@@ -1,5 +1,7 @@
 # Game Controller
 
+[To README](./../../../../README.md) 
+
 The `GameController` handles all interactions between objects on the canvas.
 
 Once started using the `start()` function, it enters the `gameLoop()`.
@@ -48,3 +50,5 @@ private obstacleTouch(draw: Draw): void {
 In that case, if they touch, the player will have lost.
 
 Additionally, the Game Controller is responsible for capturing all keyboard inputs and invoking the model with the corresponding action. This is done through the `handleKeyDown` and `handleKeyUp` functions.
+
+[To README](./../../../../README.md) 

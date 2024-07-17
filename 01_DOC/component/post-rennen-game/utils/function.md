@@ -1,5 +1,7 @@
 # Function
 
+[To README](./../../../../README.md) 
+
 The `Function` class represents the movement of the jump. It requires two values: width and height.
 
 - Width represents the length of the jump (note: the value passed does not correspond to pixels).
@@ -30,3 +32,5 @@ private getIntersezioneXNegativo(): number {
   return -Math.sqrt(Math.abs(this.height) / Math.abs(this.width));  
 }
 ```
+
+[To README](./../../../../README.md) 

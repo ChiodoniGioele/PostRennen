@@ -1,5 +1,7 @@
 # ObstacleGenerator
 
+[To README](./../../../../README.md) 
+
 This class is used to generate obstacles automatically. The constructor only needs the canvas to know where to position the obstacle generation point.
 
 Once the `start()` function is called, it will begin creating obstacle objects and placing them in the `obstacles[]` array.
@@ -24,3 +26,5 @@ removeObstacle(obstacle: Obstacle) {
   }  
 }
 ```
+
+[To README](./../../../../README.md) 
