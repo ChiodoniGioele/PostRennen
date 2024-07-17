@@ -1,27 +1,51 @@
 # PostRennen
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Game version 1.0.0.
+Angular CLI version 17.3.8.
 
-## Development server
+---
+## Project Objectives
+The objective is to develop a web game similar to the Google Chrome game "Dino", but with the style of Swiss Post and some additional features.
+The game must be suitable for all age groups and accessible from any platform.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Structure
+``` 
+src /
+	|-- app /
+		|-- component /
+		|	|-- post-rennen-game /
+		|	|	|-- controllers /
+		|	|	|-- interfaces /
+		|	|	|-- models /
+		|	|	|-- utils /
+		|	|
+		|	|-- service /
+		|
+		|-- assets/
+		|	|-- obstacle /
+		|	|	|-- up /
+		|	|	|-- down /
+		|	|	|-- middle /
+		|	|
+		|	|-- postman /
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+---
+## Command
+- **Port**: 4200
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Run**: `ng serve` | `nam start`
 
-## Running end-to-end tests
+- **Generate**: `ng generate directive|pipe|service|class|guard|interface|enum|module`
+  - `—no-standalone`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Build**: `ng build`  -> `/dist`
 
-## Further help
+- **test**: ng test
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **end-to-end test**: `ng e2e`
