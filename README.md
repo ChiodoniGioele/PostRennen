@@ -47,6 +47,22 @@ The `ObstacleGenerator` class (instantiated in DrawRepository) **manages** all `
 ### Utils
 In the `utils` folder, I have all the classes that help me represent the models.
 
+## Documentation
+- PostRennenComponent
+  - [Component](./doc/component/post-rennen-game/component.md)
+  - Controller
+    - [Game Controller](./doc/component/post-rennen-game/controllers/game.md)
+  - Model
+    - [Postman](./doc/component/post-rennen-game/models/postman.md)
+    - [Obstacle](./doc/component/post-rennen-game/models/obstacle.md)
+    - [Draw](./doc/component/post-rennen-game/models/draw.md)
+    - [DrawRepository](./doc/component/post-rennen-game/models/drawRepository.md)
+    - [ObstacleGenerator](./doc/component/post-rennen-game/models/obstacleGenerator.md)
+  - Util
+    - [Function](./doc/component/post-rennen-game/utils/function.md)
+    - [Position](./doc/component/post-rennen-game/utils/position.md)
+
+  
 
 ## Command
 - **Port**: 4200
