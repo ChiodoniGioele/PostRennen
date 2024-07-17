@@ -16,6 +16,7 @@ export class Game {
     if (!this.ctx) {
       throw new Error('Impossibile ottenere il contesto 2D dal canvas.');
     }
+    // creazione del personaggio
     const postman = new Postman(this.canvas, this.ctx, new Position(100, Altitude.Auto));
     this.drawRepository = new DrawRepository(canvas, postman);
   }

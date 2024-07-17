@@ -10,6 +10,7 @@ export class DrawRepository {
   constructor(canvas: HTMLCanvasElement, postman: Postman) {
     this._postman = postman;
     this.obstacleGenerator = new ObstacleGenerator(canvas);
+    this.obstacleGenerator.startGenerate();
   }
 
   getDraw(): Draw[] {
