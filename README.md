@@ -13,22 +13,22 @@ The game must be suitable for all age groups and accessible from any platform.
 ``` 
 src /
 	|-- app /
-		|-- component /
-		|	|-- post-rennen-game /
-		|	|	|-- controllers /
-		|	|	|-- interfaces /
-		|	|	|-- models /
-		|	|	|-- utils /
-		|	|
-		|	|-- service /
-		|
-		|-- assets/
-		|	|-- obstacle /
-		|	|	|-- up /
-		|	|	|-- down /
-		|	|	|-- middle /
-		|	|
-		|	|-- postman /
+	|	|-- component /
+	|	|	|-- post-rennen-game /
+	|	|	|	|-- controllers /
+	|	|	|	|-- interfaces /
+	|	|	|	|-- models /
+	|	|	|	|-- utils /
+	|	|	
+	|	|-- service /
+	|	
+	|-- assets/
+	|	|-- obstacle /
+	|	|	|-- up /
+	|	|	|-- down /
+	|	|	|-- middle /
+	|	|
+	|	|-- postman /
 
 ```
 

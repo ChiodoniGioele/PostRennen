@@ -15,3 +15,18 @@ The class contains the following 2 public methods used to draw [Postman](./../m
     - This returns the Y coordinate based on the X position.
 - `getDistanceX()`
     - This returns the distance between the two points of intersection with the X-axis (y = 0).
+
+```Typescript 
+getYByX(distanceRun: number): number {  
+  const y = this.width * Math.pow(this.getIntersezioneXNegativo() + distanceRun, 2) + this.height;  
+  return y > 0 ? y : 0;  
+}  
+  
+getDistanceX(): number {  
+  return Math.sqrt(Math.abs(this.height) / Math.abs(this.width)) * 2;  
+}  
+  
+private getIntersezioneXNegativo(): number {  
+  return -Math.sqrt(Math.abs(this.height) / Math.abs(this.width));  
+}
+```
