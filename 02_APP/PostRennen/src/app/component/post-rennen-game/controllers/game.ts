@@ -42,7 +42,6 @@ export class Game {
 
     gameLoop() {
         this.clearCanvas();
-        console.log("Game Loop");
         this.drawFrame();
     }
 
