@@ -1,6 +1,7 @@
 # Function
 
 [To README](./../../../../README.md) 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/utils/function.ts)
 
 The `Function` class represents the movement of the jump. It requires two values: width and height.
 

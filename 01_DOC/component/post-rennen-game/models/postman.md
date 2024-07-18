@@ -1,6 +1,7 @@
 # Postman 
 
 [To README](./../../../../README.md) 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/postman.ts)
 
 The `Postman` class is an extension of the [Draw](./draw.md) class, and it represents the main character of the game.
 
