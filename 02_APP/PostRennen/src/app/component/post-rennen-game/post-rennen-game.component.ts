@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnDestroy, ViewChild} from '@angular/core';
-import {Game} from "./controllers/game";
-import {Home} from "./controllers/home";
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { GameService } from '../../service/game.service';
+import { Home } from './controllers/home';
 
 @Component({
     selector: 'app-post-rennen-game',
@@ -8,10 +8,10 @@ import {Home} from "./controllers/home";
     styleUrls: ['./post-rennen-game.component.css']
 })
 export class PostRennenGameComponent implements AfterViewInit {
-
-    @ViewChild('game', {static: false}) canvasRef!: ElementRef<HTMLCanvasElement>;
-
+    @ViewChild('game', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
     private home: Home | undefined;
+
+    constructor(private gameService: GameService) {}
 
     ngAfterViewInit() {
         this.resizeCanvas();
@@ -30,6 +30,6 @@ export class PostRennenGameComponent implements AfterViewInit {
     }
 
     private startHome() {
-        this.home = new Home(this.canvasRef.nativeElement);
+        this.home = new Home(this.gameService, this.canvasRef.nativeElement);
     }
 }

@@ -8,7 +8,7 @@ export class Position {
   private _width: number;
   private _height: number;
 
-  constructor(x: number, altitude: Altitude = Altitude.Auto, y: number = 0, width: number = 0, height: number = 0) {
+  constructor(x: number, altitude: Altitude = Altitude.Auto, y: number = 0, image: HTMLImageElement = new Image()) {
     this._x = x;
     this._altitude = altitude;
     if (altitude == Altitude.Auto) {
@@ -16,8 +16,8 @@ export class Position {
     } else {
       this._y = altitude;
     }
-    this._width = width;
-    this._height = height;
+    this._width = image.width;
+    this._height = image.height;
   }
 
   get x(): number {

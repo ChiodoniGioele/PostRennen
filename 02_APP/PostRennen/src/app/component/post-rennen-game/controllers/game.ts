@@ -22,6 +22,7 @@ export class Game {
     }
 
     start() {
+        stop();
         this._status = true;
         const postman = new Postman(this.canvas, this.ctx!, new Position(100, Altitude.Auto));
         this.drawRepository = new DrawRepository(this.canvas, postman);
@@ -30,8 +31,18 @@ export class Game {
         window.addEventListener('keyup', (event) => this.handleKeyUp(event));
     }
 
+    stop() {
+        this._status = false;
+        clearInterval(this.gameInterval);
+        this.gameInterval = null;
+        this.drawRepository = null;
+        window.removeEventListener('keydown', (event) => this.handleKeyDown(event));
+        window.removeEventListener('keydown', (event) => this.handleKeyUp(event));
+    }
+
     gameLoop() {
         this.clearCanvas();
+        console.log("Game Loop");
         this.drawFrame();
     }
 
@@ -56,13 +67,6 @@ export class Game {
         }
     }
 
-    stop() {
-        this._status = false;
-        this.drawRepository = null;
-        clearInterval(this.gameInterval);
-        window.removeEventListener('keydown', (event) => this.handleKeyDown(event));
-        window.removeEventListener('keydown', (event) => this.handleKeyUp(event));
-    }
 
     private clearCanvas(): void {
         this.ctx!.clearRect(0, 0, this.canvas.width, this.canvas.height);
