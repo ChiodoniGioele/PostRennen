@@ -1,13 +1,13 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
 
-# Node
-/node_modules
+# Node.js
+/node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -26,19 +26,25 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+.history/
+
+# Angular
+.angular/cache/
+
+# Sass
+.sass-cache/
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
 /connect.lock
-/coverage
+/coverage/
 /libpeerconnection.log
 testem.log
-/typings
+/typings/
 
 # System files
 .DS_Store
 Thumbs.db
 
-.obsidian
+# Obsidian (assuming it's for Obsidian notes app)
+.obsidian/
+
