@@ -41,7 +41,7 @@ export class Game {
     }
 
     gameLoop() {
-        this.clearCanvas();
+        this.clearCanvas(); // prova
         this.drawFrame();
     }
 
