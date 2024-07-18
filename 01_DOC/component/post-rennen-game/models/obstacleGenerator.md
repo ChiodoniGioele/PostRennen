@@ -1,6 +1,7 @@
 # ObstacleGenerator
 
 [To README](./../../../../README.md) 
+
 [To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/obstacleGenerator.ts)
 
 This class is used to generate obstacles automatically. The constructor only needs the canvas to know where to position the obstacle generation point.
