@@ -1,7 +1,7 @@
-import { GameService } from '../../../service/game.service';
-import { Game } from './game';
-import { Initial } from '../view/initial';
-import { Subscription } from 'rxjs';
+import {GameService} from '../../../service/game.service';
+import {Game} from './game';
+import {Initial} from '../view/initial';
+import {Subscription} from 'rxjs';
 import {Injectable} from "@angular/core";
 
 @Injectable({
@@ -35,7 +35,8 @@ export class Home {
     }
 
     private handleKeyboardEvent(event: KeyboardEvent) {
-        if (event.key == 'Escape' && this.game?.status) {
+        if (event.key == 'p' && this.game?.status) {
+
             this.game?.stop();
         }
     }
