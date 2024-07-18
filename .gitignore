@@ -29,7 +29,7 @@ yarn-error.log
 .history/
 
 # Angular
-.angular/cache/
+.angular/
 
 # Sass
 .sass-cache/
