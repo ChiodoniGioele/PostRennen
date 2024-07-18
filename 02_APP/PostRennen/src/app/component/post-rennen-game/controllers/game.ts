@@ -4,6 +4,7 @@ import {Position} from "../utils/position";
 import {Altitude} from "../utils/altitude";
 import {Obstacle} from "../models/obstacle";
 import {Draw} from "../models/draw";
+import {Counter} from "../models/counter";
 
 export class Game {
 
@@ -13,12 +14,15 @@ export class Game {
     private canvas: HTMLCanvasElement;
     private drawRepository: DrawRepository | null = null;
 
+    private counter: Counter;
+
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         if (!this.ctx) {
             throw new Error('Impossibile ottenere il contesto 2D dal canvas.');
         }
+        this.counter = new Counter(canvas, this.ctx);
     }
 
     start() {
@@ -52,10 +56,12 @@ export class Game {
             draw.draw();
             this.obstacleTouch(draw);
         }
+        this.counter.draw();
     }
 
     private obstaclePassed(draw: Draw): void {
         if ((draw.position.x < 0 - draw.image.width) && !(draw instanceof Postman)) {
+            this.counter.increment();
             this.drawRepository!.removeObstacle(draw as Obstacle);
         }
     }
@@ -65,7 +71,6 @@ export class Game {
             this.drawRepository!.removeObstacle(draw as Obstacle);
         }
     }
-
 
     private clearCanvas(): void {
         this.ctx!.clearRect(0, 0, this.canvas.width, this.canvas.height);

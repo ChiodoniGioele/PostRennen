@@ -3,3 +3,10 @@ body, html {
   padding: 0;
   overflow: hidden; /* Impedisce lo scrolling della pagina intera */
 }
+
+@font-face {
+  font-family: 'Pixelify';
+  src: url('assets/fonts/pixel/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
