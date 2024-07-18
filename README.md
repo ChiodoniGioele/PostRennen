@@ -78,3 +78,10 @@ In the `utils` folder, I have all the classes that help me represent the models.
 - **test**: ng test
 
 - **end-to-end test**: `ng e2e`
+
+## ToDo
+
+- [ ] Font
+- [ ] Death
+- [ ] Obstacle generation 
+- [ ] Graphics
