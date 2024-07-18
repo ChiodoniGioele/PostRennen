@@ -48,7 +48,7 @@ The `ObstacleGenerator` class (instantiated in DrawRepository) **manages** all `
 In the `utils` folder, I have all the classes that help me represent the models.
 
 ## Documentation
-- PostRennenComponent
+- PostRennenComponent (go to the directory [folder](./02_APP/PostRennen/src/app/component/post-rennen-game/))
   - [Component](./01_DOC/component/post-rennen-game/component.md)
   - Controller
     - [Game Controller](./01_DOC/component/post-rennen-game/controllers/game.md)
