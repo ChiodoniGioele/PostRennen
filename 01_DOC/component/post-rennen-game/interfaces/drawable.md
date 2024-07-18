@@ -17,4 +17,6 @@ export interface Drawable {
 }
 ```
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/interfaces/drawable.ts)
+
 [To README](./../../../../README.md) 

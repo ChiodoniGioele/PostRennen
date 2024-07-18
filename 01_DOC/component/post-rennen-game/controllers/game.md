@@ -53,4 +53,6 @@ In that case, if they touch, the player will have lost.
 
 Additionally, the Game Controller is responsible for capturing all keyboard inputs and invoking the model with the corresponding action. This is done through the `handleKeyDown` and `handleKeyUp` functions.
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/controllers/game.ts)
+
 [To README](./../../../../README.md) 

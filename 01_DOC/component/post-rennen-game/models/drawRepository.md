@@ -26,4 +26,6 @@ getDraw(): Draw[] {
 
 Additionally, this class has the `removeObstacle()` function, which always calls `removeObstacle()` of the [ObstacleGenerator](./obstacleGenerator.md) class, allowing obstacles to be removed without directly interacting with ObstacleGenerator.
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/drawRepository.ts)
+
 [To README](./../../../../README.md) 

@@ -50,4 +50,6 @@ private compareY(otherPosition: Position): boolean {
 }
 ```
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/draw.ts)
+
 [To README](./../../../../README.md) 

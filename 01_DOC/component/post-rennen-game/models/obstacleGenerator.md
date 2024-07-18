@@ -29,4 +29,6 @@ removeObstacle(obstacle: Obstacle) {
 }
 ```
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/obstacleGenerator.ts)
+
 [To README](./../../../../README.md) 

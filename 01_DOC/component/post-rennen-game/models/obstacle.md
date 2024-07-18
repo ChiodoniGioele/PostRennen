@@ -18,4 +18,7 @@ start() {
 }
 ```
 
+[To file](./../../../../02_APP/PostRennen/src/app/component/post-rennen-game/models/obstacle.ts)
+
+
 [To README](./../../../../README.md) 
