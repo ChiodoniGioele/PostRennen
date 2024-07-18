@@ -16,3 +16,4 @@ export class Obstacle extends Draw {
     }, 30);
   }
 }
+// test
