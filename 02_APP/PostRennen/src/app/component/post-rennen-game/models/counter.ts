@@ -18,14 +18,15 @@ export class Counter implements Drawable {
     }
 
     draw(): void {
-        this.ctx.font = "48px serif";
-        this.ctx.strokeText(String(this._count), this.position.x, this.position.y);
+        // Usa il font stile pixel art
+        this.ctx.font = "48px 'Press Start 2P'";
+        this.ctx.fillStyle = "black";
+        this.ctx.fillText(String(this._count), this.position.x, this.position.y);
     }
 
     increment(): void {
         this._count++;
     }
-
 
     get count(): number {
         return this._count;
