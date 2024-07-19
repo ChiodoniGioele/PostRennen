@@ -36,7 +36,6 @@ export class Home {
 
     private handleKeyboardEvent(event: KeyboardEvent) {
         if (event.key == 'p' && this.game?.status) {
-
             this.game?.stop();
         }
     }
