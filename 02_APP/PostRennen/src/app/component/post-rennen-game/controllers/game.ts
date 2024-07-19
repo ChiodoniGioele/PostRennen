@@ -32,6 +32,7 @@ export class Game {
 
     start() {
         stop();
+        this.counter = new Counter(this.canvas, this.ctx!);
         this._status = true;
         const postman = new Postman(this.canvas, this.ctx!, new Position(100, Altitude.Auto));
         this.drawRepository = new DrawRepository(this.canvas, postman);

@@ -1,7 +1,7 @@
-import { GameService } from '../../../service/game.service';
-import { Drawable } from '../interfaces/drawable';
-import { Position } from '../utils/position';
-import { Altitude } from '../utils/altitude';
+import {GameService} from '../../../service/game.service';
+import {Drawable} from '../interfaces/drawable';
+import {Position} from '../utils/position';
+import {Altitude} from '../utils/altitude';
 
 export class Initial implements Drawable {
     ctx: CanvasRenderingContext2D;

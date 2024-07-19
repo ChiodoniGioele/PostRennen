@@ -50,5 +50,6 @@ export class Home {
 
     ngOnDestroy() {
         this.gameStatusSubscription?.unsubscribe();
+        this.diedSubscription?.unsubscribe();
     }
 }
