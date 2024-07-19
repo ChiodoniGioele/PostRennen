@@ -12,10 +12,11 @@ export class Home {
     private canvas: HTMLCanvasElement;
     private game: Game | undefined;
     private gameStatusSubscription: Subscription | undefined;
+    private diedSubscription: Subscription | undefined;
 
     constructor(private gameService: GameService, canvas: HTMLCanvasElement, private localStorage: LocalStorageService) {
         this.canvas = canvas;
-        this.game = new Game(canvas, localStorage);
+        this.game = new Game(canvas, localStorage, gameService);
 
         document.addEventListener('keydown', this.handleKeyboardEvent.bind(this));
 
@@ -31,6 +32,12 @@ export class Home {
                 if (this.game?.status) {
                     this.game?.stop();
                 }
+            }
+        });
+
+        this.diedSubscription = this.gameService.getDied().subscribe((died: boolean) => {
+            if (died) {
+                initialScreen.draw();
             }
         });
     }

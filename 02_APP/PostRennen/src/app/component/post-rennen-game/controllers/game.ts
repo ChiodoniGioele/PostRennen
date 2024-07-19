@@ -6,6 +6,7 @@ import {Obstacle} from "../models/obstacle";
 import {Draw} from "../models/draw";
 import {Counter} from "../models/counter";
 import {LocalStorageService} from "../../../service/local-storage.service";
+import {GameService} from "../../../service/game.service";
 
 export class Game {
 
@@ -15,9 +16,10 @@ export class Game {
     private canvas: HTMLCanvasElement;
     private drawRepository: DrawRepository | null = null;
     private localStorage: LocalStorageService;
+    private gameService: GameService;
     private counter: Counter;
 
-    constructor(canvas: HTMLCanvasElement, localStorage: LocalStorageService) {
+    constructor(canvas: HTMLCanvasElement, localStorage: LocalStorageService, gameService: GameService) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         if (!this.ctx) {
@@ -25,6 +27,7 @@ export class Game {
         }
         this.counter = new Counter(canvas, this.ctx);
         this.localStorage = localStorage;
+        this.gameService = gameService;
     }
 
     start() {
@@ -52,13 +55,20 @@ export class Game {
     }
 
     drawFrame(): void {
+        let died = false;
         this.drawTemporalHeightLine();
         for (let draw of this.drawRepository!.getDraw()) {
             this.obstaclePassed(draw);
             draw.draw();
-            this.obstacleTouch(draw);
+            if(!died){
+                died = this.obstacleTouch(draw);
+            }
+
         }
         this.counter.draw();
+        if(died){
+            this.died();
+        }
     }
 
     private obstaclePassed(draw: Draw): void {
@@ -68,12 +78,25 @@ export class Game {
         }
     }
 
-    private obstacleTouch(draw: Draw): void {
+    private obstacleTouch(draw: Draw): boolean {
         if (!(draw instanceof Postman) && draw.isOverlapping(this.drawRepository!.postman.position)) {
             this.drawRepository!.removeObstacle(draw as Obstacle);
             this.setPoint();
+            return true;
         }
+        return false;
     }
+
+    private async died() {
+        this.stop();
+        await this.delay(1000); // Pausa di 1 secondo
+        this.gameService.setDied(true);
+    }
+
+    private delay(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
 
     private setPoint(): void {
         const storedPoints = this.localStorage.getItem<string>("points");
@@ -154,7 +177,7 @@ export class Game {
 
     // da elliminare quando finito il gioco //
     private drawTemporalHeightLine(): void {
-        if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
+        if (!this.ctx) return;
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 2;
         this.ctx.beginPath();
@@ -162,7 +185,6 @@ export class Game {
         this.ctx.lineTo(10000, Altitude.Up);
         this.ctx.stroke();
 
-        if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 2;
         this.ctx.beginPath();
@@ -170,7 +192,7 @@ export class Game {
         this.ctx.lineTo(10000, Altitude.Middle);
         this.ctx.stroke();
 
-        if (!this.ctx) return; // Check if ctx is null, although it should be initialized in the constructor
+        if (!this.ctx) return;
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 2
         this.ctx.beginPath();

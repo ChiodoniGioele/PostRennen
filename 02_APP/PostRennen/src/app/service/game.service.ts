@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class GameService {
     private gameStatusSubject = new Subject<boolean>();
+    private diedSubject = new Subject<boolean>();
 
     setGameStatus(status: boolean) {
         this.gameStatusSubject.next(status);
@@ -13,5 +14,13 @@ export class GameService {
 
     getGameStatus(): Observable<boolean> {
         return this.gameStatusSubject.asObservable();
+    }
+
+    setDied(status: boolean) {
+        this.diedSubject.next(status);
+    }
+
+    getDied(): Observable<boolean> {
+        return this.diedSubject.asObservable();
     }
 }
