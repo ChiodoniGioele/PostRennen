@@ -5,6 +5,7 @@ import {Altitude} from "../utils/altitude";
 import {Obstacle} from "../models/obstacle";
 import {Draw} from "../models/draw";
 import {Counter} from "../models/counter";
+import {LocalStorageService} from "../../../service/local-storage.service";
 
 export class Game {
 
@@ -13,16 +14,17 @@ export class Game {
     private gameInterval: any;
     private canvas: HTMLCanvasElement;
     private drawRepository: DrawRepository | null = null;
-
+    private localStorage: LocalStorageService;
     private counter: Counter;
 
-    constructor(canvas: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement, localStorage: LocalStorageService) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         if (!this.ctx) {
             throw new Error('Impossibile ottenere il contesto 2D dal canvas.');
         }
         this.counter = new Counter(canvas, this.ctx);
+        this.localStorage = localStorage;
     }
 
     start() {
@@ -69,8 +71,29 @@ export class Game {
     private obstacleTouch(draw: Draw): void {
         if (!(draw instanceof Postman) && draw.isOverlapping(this.drawRepository!.postman.position)) {
             this.drawRepository!.removeObstacle(draw as Obstacle);
+            this.setPoint();
         }
     }
+
+    private setPoint(): void {
+        const storedPoints = this.localStorage.getItem<string>("points");
+        let arrayPoints: number[] = [];
+
+        if (storedPoints) {
+            arrayPoints = JSON.parse(storedPoints);
+        }
+
+        arrayPoints.sort((a, b) => b - a);
+
+        if (arrayPoints.length > 9) {
+            arrayPoints.splice(9);
+        }
+
+        arrayPoints.push(this.counter.count);
+        console.log(arrayPoints);
+        this.localStorage.setItem("points", JSON.stringify(arrayPoints));
+    }
+
 
     private clearCanvas(): void {
         this.ctx!.clearRect(0, 0, this.canvas.width, this.canvas.height);

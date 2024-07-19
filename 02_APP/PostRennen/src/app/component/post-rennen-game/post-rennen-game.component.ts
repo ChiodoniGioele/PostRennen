@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { GameService } from '../../service/game.service';
 import { Home } from './controllers/home';
+import {LocalStorageService} from "../../service/local-storage.service";
 
 @Component({
     selector: 'app-post-rennen-game',
@@ -11,7 +12,7 @@ export class PostRennenGameComponent implements AfterViewInit {
     @ViewChild('game', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
     private home: Home | undefined;
 
-    constructor(private gameService: GameService) {}
+    constructor(private gameService: GameService, private localStorageService: LocalStorageService) {}
 
     ngAfterViewInit() {
         this.resizeCanvas();
@@ -30,6 +31,6 @@ export class PostRennenGameComponent implements AfterViewInit {
     }
 
     private startHome() {
-        this.home = new Home(this.gameService, this.canvasRef.nativeElement);
+        this.home = new Home(this.gameService, this.canvasRef.nativeElement, this.localStorageService);
     }
 }

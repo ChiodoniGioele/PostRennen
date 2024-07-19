@@ -1,7 +1,6 @@
-import {Drawable} from "../interfaces/drawable";
-import {Position} from "../utils/position";
-import {Altitude} from "../utils/altitude";
-import {count} from "rxjs";
+import { Drawable } from "../interfaces/drawable";
+import { Position } from "../utils/position";
+import { Altitude } from "../utils/altitude";
 
 export class Counter implements Drawable {
     ctx: CanvasRenderingContext2D;
@@ -18,7 +17,6 @@ export class Counter implements Drawable {
     }
 
     draw(): void {
-        // Usa il font stile pixel art
         this.ctx.font = "48px 'Press Start 2P'";
         this.ctx.fillStyle = "black";
         this.ctx.fillText(String(this._count), this.position.x, this.position.y);
