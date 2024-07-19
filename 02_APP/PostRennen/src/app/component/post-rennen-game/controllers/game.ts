@@ -114,7 +114,6 @@ export class Game {
         }
 
         arrayPoints.push(this.counter.count);
-        console.log(arrayPoints);
         this.localStorage.setItem("points", JSON.stringify(arrayPoints));
     }
 

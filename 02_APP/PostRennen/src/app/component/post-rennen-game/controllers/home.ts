@@ -20,7 +20,7 @@ export class Home {
 
         document.addEventListener('keydown', this.handleKeyboardEvent.bind(this));
 
-        const initialScreen = new Initial(gameService, canvas);
+        const initialScreen = new Initial(gameService,localStorage, canvas);
         initialScreen.draw();
 
         this.gameStatusSubscription = this.gameService.getGameStatus().subscribe((gameStatus: boolean) => {

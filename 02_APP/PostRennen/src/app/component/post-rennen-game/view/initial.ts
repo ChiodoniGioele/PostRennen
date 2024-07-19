@@ -2,6 +2,7 @@ import {GameService} from '../../../service/game.service';
 import {Drawable} from '../interfaces/drawable';
 import {Position} from '../utils/position';
 import {Altitude} from '../utils/altitude';
+import {LocalStorageService} from "../../../service/local-storage.service";
 
 export class Initial implements Drawable {
     ctx: CanvasRenderingContext2D;
@@ -9,7 +10,7 @@ export class Initial implements Drawable {
     image: HTMLImageElement = new Image();
     private canvas: HTMLCanvasElement;
 
-    constructor(private gameService: GameService, canvas: HTMLCanvasElement) {
+    constructor(private gameService: GameService, private localStorage: LocalStorageService, canvas: HTMLCanvasElement) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d")!;
         if (!this.ctx) {
@@ -41,7 +42,49 @@ export class Initial implements Drawable {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBackground();
         this.drawButton();
+        this.drawPoints();
     }
+
+    private drawPoints(): void {
+        if (!this.localStorage.containsKey("points")) {
+            return;
+        }
+
+        const points = JSON.parse(this.localStorage.getItem("points")!);
+        const sortedPoints = this.getSortedPoints(points);
+        const lastPoint = points[points.length - 1];
+
+        const x = this.canvas.width / 5;
+        let y = this.canvas.height / 3;
+        let drawLastPoint = false;
+
+        this.drawText(this.canvas.width / 5, this.canvas.height / 4, "Results:");
+
+        sortedPoints.forEach((point: string, index: number) => {
+            const position = index + 1;
+            const value = `${position < 10 ? " " : ""}${position}. ${point}`;
+
+            if (point === lastPoint && !drawLastPoint) {
+                this.drawText(x, y, value, "red");
+                drawLastPoint = true;
+            } else {
+                this.drawText(x, y, value);
+            }
+            y += 30;
+        });
+    }
+
+    private getSortedPoints(points: string[]): string[] {
+        return points.slice().sort((a: string, b: string) => parseFloat(b) - parseFloat(a));
+    }
+
+    private drawText(x: number, y: number, value: string, color: string = "black"): void {
+        this.ctx.font = "24px 'Press Start 2P'";
+        this.ctx.fillStyle = color;
+        this.ctx.fillText(value, x, y);
+    }
+
+
 
     private drawBackground() {
         if (!this.ctx) return;
